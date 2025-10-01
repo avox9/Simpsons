@@ -2,50 +2,89 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mes vidéos</title>
+  <title>Ma Série</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0d1b2a;
+      background: #111;
       color: #fff;
       text-align: center;
-      margin: 0;
-      padding: 0;
     }
-    h1 {
-      margin-top: 30px;
-      color: #ffd166;
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
+    .tab {
+      background: #333;
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 5px;
     }
-    .video-link {
+    .tab.active {
+      background: #ff6600;
+    }
+    .episodes {
+      display: none;
+    }
+    .episodes.active {
       display: block;
-      background: #1b263b;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #ffd166;
-      font-size: 18px;
-      font-weight: bold;
-      transition: 0.3s;
     }
-    .video-link:hover {
-      background: #ffd166;
-      color: #0d1b2a;
+    a {
+      display: block;
+      color: #00aced;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>🎬 Simpsons QC</h1>
-  <div class="container">
-    <a class="video-link" href="https://dsvplay.com/d/jmqx8q9pod32" target="_blank">S1 E1</a>
-    <a class="video-link" href="https://dsvplay.com/d/oc4193p6xlaf" target="_blank">S1 E2</a>
-    <a class="video-link" href="https://doodstream.com/d/ZZZZZZZ" target="_blank">Vidéo 3</a>
+  <h1>📺 Ma Série</h1>
+
+  <!-- Onglets saisons -->
+  <div class="tabs">
+    <div class="tab active" onclick="showSeason(1)">Saison 1</div>
+    <div class="tab" onclick="showSeason(2)">Saison 2</div>
   </div>
+
+  <!-- Saison 1 -->
+  <div id="season1" class="episodes active">
+    <h2>Saison 1</h2>
+    <a href="https://dsvplay.com/d/jmqx8q9pod32" target="_blank">Épisode 1</a>
+    <a href="https://dsvplay.com/d/oc4193p6xlaf" target="_blank">Épisode 2</a>
+    <a href="https://dsvplay.com/d/igts1ov1u3bm" target="_blank">Épisode 3</a>
+    <a href="https://dsvplay.com/d/3127gkiap59b" target="_blank">Épisode 4</a>
+    <a href="https://dsvplay.com/d/j523mi18plez" target="_blank">Épisode 5</a>
+    <a href="https://dsvplay.com/d/pfcfw8bsrnz2" target="_blank">Épisode 6</a>
+    <a href="https://dsvplay.com/d/3a0sd07pup1b" target="_blank">Épisode 7</a>
+    <a href="https://dsvplay.com/d/j8hwzt14jtle" target="_blank">Épisode 8</a>
+    <a href="https://dsvplay.com/d/ijhr4l90qx9w" target="_blank">Épisode 9</a>
+    <a href="https://dsvplay.com/d/0j6jni5hr3g6" target="_blank">Épisode 10</a>
+    <a href="https://dsvplay.com/d/cmfaz46cwloi" target="_blank">Épisode 11</a>
+    <a href="https://dsvplay.com/d/cmfaz46cwloi" target="_blank">Épisode 12</a>
+    <a href="https://dsvplay.com/d/impo883et608" target="_blank">Épisode 13</a>
+  </div>
+
+  <!-- Saison 2 -->
+  <div id="season2" class="episodes">
+    <h2>Saison 2</h2>
+    <a href="https://doodstream.com/episode1linkS2" target="_blank">Épisode 1</a>
+    <a href="https://doodstream.com/episode2linkS2" target="_blank">Épisode 2</a>
+    <a href="https://doodstream.com/episode3linkS2" target="_blank">Épisode 3</a>
+  </div>
+
+  <script>
+    function showSeason(num) {
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+      document.querySelectorAll(".episodes").forEach(ep => ep.classList.remove("active"));
+
+      document.querySelector(".tab:nth-child(" + num + ")").classList.add("active");
+      document.querySelector("#season" + num).classList.add("active");
+    }
+  </script>
 </body>
 </html>
